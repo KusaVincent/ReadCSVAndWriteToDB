@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MoveDataFromCSVToDB
+namespace ReadCSVAndWriteToDB
 {
     internal class FilterDataBeforeSendingToDB
     {

@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace MoveDataFromCSVToDB
+namespace ReadCSVAndWriteToDB
 {
     internal class ReadDataFromCsv 
     {

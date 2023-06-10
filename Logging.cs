@@ -3,7 +3,7 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.File;
 
-namespace MoveDataFromCSVToDB
+namespace ReadCSVAndWriteToDB
 {
     internal class Logging 
     {

@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 
-namespace MoveDataFromCSVToDB
+namespace ReadCSVAndWriteToDB
 {
     internal class DataBase
     {
