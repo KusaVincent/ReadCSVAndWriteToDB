@@ -3,7 +3,7 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.File;
 
-namespace MpesaHoldingCSVToDB
+namespace MoveDataFromCSVToDB
 {
     internal class Logging 
     {
@@ -11,14 +11,15 @@ namespace MpesaHoldingCSVToDB
         {
             DateTime now = DateTime.Now;
 
-            String logDate = now.ToString("yyyyMMdd");
-            String logFile = HandleConfigData.ConfigurationData("Authentication", "File:logName");
-            String logDir = HandleConfigData.ConfigurationData("Authentication", "Directory:logDir");
+            String logDate  = now.ToString("yyyyMMdd");
+            String logExt   = HandleConfigData.ConfigurationData("Authentication", "File:logExt");
+            String logFile  = HandleConfigData.ConfigurationData("Authentication", "File:logName");
+            String logDir   = HandleConfigData.ConfigurationData("Authentication", "Directory:logDir");
 
-            String logName = logDir + logFile + logDate + ".txt";
+            String logName  = logDir + logFile + logDate + logExt;
 
             Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Debug()
+                .MinimumLevel.Debug()
                 .WriteTo.File(logName, LogEventLevel.Information,
                     outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level:u3}] {Message:lj}{NewLine}{Exception}",
                     rollingInterval: RollingInterval.Day)

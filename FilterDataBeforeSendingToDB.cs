@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MpesaHoldingCSVToDB
+namespace MoveDataFromCSVToDB
 {
     internal class FilterDataBeforeSendingToDB
     {

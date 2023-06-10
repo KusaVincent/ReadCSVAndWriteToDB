@@ -3,13 +3,13 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 
-namespace MpesaHoldingCSVToDB
+namespace MoveDataFromCSVToDB
 {
     internal class DataBase
     {
         public static List<string> ExecuteQuery(string statement, string value0, string value1 = "", string value2 = "", string value3 = "", string value4 = "", string value5 = "")
         {
-            List<string> result = new List<string>();
+            List<string> result  = new List<string>();
             
             var connectionString = HandleConfigData.ConfigurationData("Authentication", "Database:ConnectionString");
 
@@ -20,7 +20,7 @@ namespace MpesaHoldingCSVToDB
                     sqlConnection.Open();
 
                     if (statement == "select") {
-                        string query = "SELECT ReferenceNo FROM [IConDb].[dbo].[MpesaHolding] WHERE ReferenceNo = @value0";
+                        string query = "SELECT ReferenceNo FROM [IConDb].[dbo].[MoveDataFrom] WHERE ReferenceNo = @value0";
                         
                         using (SqlCommand command = new SqlCommand(query, sqlConnection))
                         {
@@ -32,14 +32,14 @@ namespace MpesaHoldingCSVToDB
                                 {
                                     for (int i = 0; i < reader.FieldCount; i++)
                                     {
-                                        string columnValue = reader.GetValue(i)?.ToString() ?? "N/A";
+                                        string columnValue = reader.GetValue(i)?.ToString() ?? "NULL";
                                         result.Add(columnValue);
                                     }
                                 }
                             }
                         }
                     }  else if (statement == "insert") {
-                        string query = "INSERT INTO [IConDb].[dbo].[MpesaHolding] (Date, TransactionDetails, ReferenceNo, ValueDate, DebitAmount, CreditAmount) VALUES (@Value0,@Value1,@Value2,@Value3,@Value4,@Value5)";
+                        string query = "INSERT INTO [IConDb].[dbo].[MoveDataFrom] (Date, TransactionDetails, ReferenceNo, ValueDate, DebitAmount, CreditAmount) VALUES (@Value0,@Value1,@Value2,@Value3,@Value4,@Value5)";
                         
                         using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
                         {

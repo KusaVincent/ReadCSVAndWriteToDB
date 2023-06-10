@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MpesaHoldingCSVToDB
+namespace MoveDataFromCSVToDB
 {
     internal class Program 
     {
@@ -8,13 +8,15 @@ namespace MpesaHoldingCSVToDB
         {
             DateTime now = DateTime.Now;
             
-            string dateFormat = now.ToString("dd/MM/yyyy");
+            string dateFormat    = now.ToString("dd/MM/yyyy");
             string formattedDate = now.ToString("yyyyMMddHHmm");
 
-            String csvFile = HandleConfigData.ConfigurationData("Authentication", "File:fileName");
+            String fileExt  = HandleConfigData.ConfigurationData("Authentication", "File:fileExt");
+            String csvFile  = HandleConfigData.ConfigurationData("Authentication", "File:fileName");
             String filePath = HandleConfigData.ConfigurationData("Authentication", "Directory:fileDir");
 
-            String fileName = csvFile + formattedDate + ".csv";
+            String fileName = csvFile + formattedDate + fileExt;
+
             String dataFile = filePath + fileName;
 
             List<string> returnedData = ReadDataFromCsv.GetDataFromCsv(dataFile, dateFormat);
