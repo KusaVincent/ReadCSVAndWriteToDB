@@ -11,9 +11,9 @@ namespace ReadCSVAndWriteToDB
             string dateFormat    = now.ToString("dd/MM/yyyy");
             string formattedDate = now.ToString("yyyyMMddHHmm");
 
-            String fileExt  = HandleConfigData.ConfigurationData("Authentication", "File:fileExt");
-            String csvFile  = HandleConfigData.ConfigurationData("Authentication", "File:fileName");
-            String filePath = HandleConfigData.ConfigurationData("Authentication", "Directory:fileDir");
+            String fileExt  = HandleConfigData.ConfigurationData("Authentication", "File:FileExt");
+            String csvFile  = HandleConfigData.ConfigurationData("Authentication", "File:FileName");
+            String filePath = HandleConfigData.ConfigurationData("Authentication", "Directory:FileDir");
 
             String fileName = csvFile + formattedDate + fileExt;
 

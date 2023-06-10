@@ -20,7 +20,7 @@ namespace ReadCSVAndWriteToDB
                     sqlConnection.Open();
 
                     if (statement == "select") {
-                        string query = "SELECT ReferenceNo FROM [IConDb].[dbo].[MoveDataFrom] WHERE ReferenceNo = @value0";
+                        string query = HandleConfigData.ConfigurationData("Authentication", "Database:SelectQuery");
                         
                         using (SqlCommand command = new SqlCommand(query, sqlConnection))
                         {
@@ -39,7 +39,7 @@ namespace ReadCSVAndWriteToDB
                             }
                         }
                     }  else if (statement == "insert") {
-                        string query = "INSERT INTO [IConDb].[dbo].[MoveDataFrom] (Date, TransactionDetails, ReferenceNo, ValueDate, DebitAmount, CreditAmount) VALUES (@Value0,@Value1,@Value2,@Value3,@Value4,@Value5)";
+                        string query = HandleConfigData.ConfigurationData("Authentication", "Database:InsertQuery");
                         
                         using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
                         {

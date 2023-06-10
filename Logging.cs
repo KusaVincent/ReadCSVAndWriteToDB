@@ -12,9 +12,9 @@ namespace ReadCSVAndWriteToDB
             DateTime now = DateTime.Now;
 
             String logDate  = now.ToString("yyyyMMdd");
-            String logExt   = HandleConfigData.ConfigurationData("Authentication", "File:logExt");
-            String logFile  = HandleConfigData.ConfigurationData("Authentication", "File:logName");
-            String logDir   = HandleConfigData.ConfigurationData("Authentication", "Directory:logDir");
+            String logExt   = HandleConfigData.ConfigurationData("Authentication", "File:LogExt");
+            String logFile  = HandleConfigData.ConfigurationData("Authentication", "File:LogName");
+            String logDir   = HandleConfigData.ConfigurationData("Authentication", "Directory:LogDir");
 
             String logName  = logDir + logFile + logDate + logExt;
 
@@ -25,11 +25,11 @@ namespace ReadCSVAndWriteToDB
                     rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 
-            foreach (string logs in logInfo) {
+            foreach (string logMsg in logInfo) {
                 if (message == "Error")  {
-                    Log.Error(logs);
+                    Log.Error(logMsg);
                 }  else if (message == "Information")  {
-                    Log.Information(logs);
+                    Log.Information(logMsg);
                 }
             }
 
