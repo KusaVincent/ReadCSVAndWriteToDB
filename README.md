@@ -22,22 +22,22 @@ Reading a CSV file and writing it to a Database (SQL Server{MSSQL})
 
     ```json
     {
-    "Authentication": "DatabaseConnectionString",
-    "Database": {
-        "ConnectionString": "Data Source=DB_IP;Initial Catalog=DB_NAME;User ID=DB_USER;Password=DB_PASSWORD",
-        "SelectQuery": "SELECT Coulmn3 FROM [DB_NAME].[CSVTable] WHERE Coulmn3 = @value0",
-        "InsertQuery": "INSERT INTO [DB_NAME].[CSVTable] (Coulmn1, Coulmn2, Coulmn3, Coulmn4, Coulmn5, Coulmn6) VALUES (@Value0,@Value1,@Value2,@Value3,@Value4,@Value5)"
-    },
-    "Directory" : {
-        "FileDir" : "D:\\FILES\\",
-        "LogDir"  : "D:\\FILES\\logs\\"
-    },
-    "File" : {
-        "LogExt" : ".txt",
-        "FileExt" : ".csv",
-        "LogName" : "log_",
-        "FileName" : "MYFILENAME_"
-    }
+        "Authentication": "DatabaseConnectionString",
+        "Database": {
+            "ConnectionString": "Data Source=DB_IP;Initial Catalog=DB_NAME;User ID=DB_USER;Password=DB_PASSWORD",
+            "SelectQuery": "SELECT Coulmn3 FROM [DB_NAME].[CSVTable] WHERE Coulmn3 = @value0",
+            "InsertQuery": "INSERT INTO [DB_NAME].[CSVTable] (Coulmn1, Coulmn2, Coulmn3, Coulmn4, Coulmn5, Coulmn6) VALUES (@Value0,@Value1,@Value2,@Value3,@Value4,@Value5)"
+        },
+        "Directory" : {
+            "FileDir" : "D:\\FILES\\",
+            "LogDir"  : "D:\\FILES\\logs\\"
+        },
+        "File" : {
+            "LogExt" : ".txt",
+            "FileExt" : ".csv",
+            "LogName" : "log_",
+            "FileName" : "MYFILENAME_"
+        }
     }
     ```
     file paths here a for windows environment, you can customize to match environment you are using.
