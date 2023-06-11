@@ -5,7 +5,7 @@ Reading a CSV file and writing it to a Database (SQL Server{MSSQL})
 **Table of contents**
 1. Set up
 2. understand the code
-
+---
 ### Set up 
 1. #### Prerequisite
     1. Ensure you have .NET installed
@@ -41,8 +41,8 @@ Reading a CSV file and writing it to a Database (SQL Server{MSSQL})
     }
     ```
     file paths here a for windows environment, you can customize to match environment you are using.
-
-### understand the code
+---
+### Understand the Code
 1. #### Program.cs
     This is project entry point.
     It gets the csv file and date filter and pass it to class responsible for reading the file.
@@ -86,3 +86,4 @@ Reading a CSV file and writing it to a Database (SQL Server{MSSQL})
 1. #### HandleConfigData.cs
     It's responsibility is to read data from the config file `appsettings.json`
     Return NULL if it does not find the data being looked for.
+---
