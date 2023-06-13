@@ -8,17 +8,27 @@ namespace ReadCSVAndWriteToDB
         public static void PrepareAndCompareCsvAndDbData(List<string> csvData)
         {
             List<string> databaseResponse = new List<string>();
-
-            foreach (string csvLine in csvData)
+            Dictionary<string, string> dbValue = new Dictionary<string, string>();
+            
+            if (csvData.Count != 0)
             {
-                string[] csvValues = csvLine.Split(",");
-                
-                if (csvValues.Length > 2)
+                foreach (string csvLine in csvData)
                 {
-                    List<string> checkAvailability = DataBase.ExecuteQuery("select", csvValues[2]);
+                    string[] csvValues = csvLine.Split(",");
+                    
+                    if (csvValues.Length > 2)
+                    {
+                        dbValue["value2"] = csvValues[2];
+                        List<string> checkAvailability = DataBase.ExecuteQuery("select", dbValue);
 
-                    if(checkAvailability.Count == 0) {
-                        databaseResponse = DataBase.ExecuteQuery("insert", csvValues[0], csvValues[1], csvValues[2], csvValues[3], csvValues[4], csvValues[5]);
+                        if(checkAvailability.Count == 0) {
+                            dbValue["value0"] = csvValues[0];
+                            dbValue["value1"] = csvValues[1];
+                            dbValue["value3"] = csvValues[3];
+                            dbValue["value4"] = csvValues[4];
+                            dbValue["value5"] = csvValues[5];
+                            databaseResponse = DataBase.ExecuteQuery("insert",dbValue);
+                        }
                     }
                 }
             }

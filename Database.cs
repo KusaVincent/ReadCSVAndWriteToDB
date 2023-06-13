@@ -7,7 +7,7 @@ namespace ReadCSVAndWriteToDB
 {
     internal class DataBase
     {
-        public static List<string> ExecuteQuery(string statement, string value0, string value1 = "", string value2 = "", string value3 = "", string value4 = "", string value5 = "")
+        public static List<string> ExecuteQuery(string statement, Dictionary<string, string> value)
         {
             List<string> result  = new List<string>();
             
@@ -24,7 +24,7 @@ namespace ReadCSVAndWriteToDB
                         
                         using (SqlCommand command = new SqlCommand(query, sqlConnection))
                         {
-                            command.Parameters.AddWithValue("@Value0", value0);
+                            command.Parameters.AddWithValue("@Value0", value["value2"]);
 
                             using (SqlDataReader reader = command.ExecuteReader())
                             {
@@ -43,17 +43,19 @@ namespace ReadCSVAndWriteToDB
                         
                         using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
                         {
-                            sqlCommand.Parameters.AddWithValue("@Value0", value0);
-                            sqlCommand.Parameters.AddWithValue("@Value1", value1);
-                            sqlCommand.Parameters.AddWithValue("@Value2", value2);
-                            sqlCommand.Parameters.AddWithValue("@Value3", value3);
-                            sqlCommand.Parameters.AddWithValue("@Value4", value4);
-                            sqlCommand.Parameters.AddWithValue("@Value5", value5);
+                            sqlCommand.Parameters.AddWithValue("@Value0", value["value0"]);
+                            sqlCommand.Parameters.AddWithValue("@Value1", value["value1"]);
+                            sqlCommand.Parameters.AddWithValue("@Value2", value["value2"]);
+                            sqlCommand.Parameters.AddWithValue("@Value3", value["value3"]);
+                            sqlCommand.Parameters.AddWithValue("@Value4", value["value4"]);
+                            sqlCommand.Parameters.AddWithValue("@Value5", value["value5"]);
 
                             int rowsAffected = sqlCommand.ExecuteNonQuery();
                             result.Add(rowsAffected.ToString());
                         }
                     }
+
+                    sqlConnection.Close();
                 }
             }
             catch (Exception e)
