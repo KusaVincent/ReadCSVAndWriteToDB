@@ -20,8 +20,8 @@ namespace ReadCSVAndWriteToDB
             String dataFile = filePath + fileName;
 
             List<string> returnedData = ReadDataFromCsv.GetDataFromCsv(dataFile, dateFormat);
-            
-            FilterDataBeforeSendingToDB.PrepareAndCompareCsvAndDbData(returnedData);
+
+            if (returnedData.Count > 0) FilterDataBeforeSendingToDB.PrepareAndCompareCsvAndDbData(returnedData); 
         }
     }
 }
