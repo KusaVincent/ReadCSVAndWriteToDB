@@ -35,8 +35,7 @@ Reading a CSV file and writing it to a Database (SQL Server{MSSQL})
         "File" : {
             "LogExt" : ".txt",
             "FileExt" : ".csv",
-            "LogName" : "log_",
-            "FileName" : "MYFILENAME_"
+            "LogName" : "log_"
         }
     }
     ```
