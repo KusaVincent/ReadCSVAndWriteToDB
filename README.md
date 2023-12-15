@@ -44,32 +44,23 @@ Reading a CSV file and writing it to a Database (SQL Server{MSSQL})
 ### Understand the Code
 1. #### Program.cs
     This is project entry point.
-    It gets the csv file and date filter and pass it to class responsible for reading the file.
-    The program is customized to get the file with the current timestamp.
-    ```c#
-        //example file
-        MYFILENAME_2023061110823.csv
-    ```
-    This can be done away with by passing below variable as null in this file.
-    ```c#
-         string formattedDate = now.ToString("yyyyMMddHHmm");
-    ```
+    It gets the latest csv file and pass it to class responsible for reading the file.
 
-1. #### ReadDataFromCsv.cs
+2. #### ReadDataFromCsv.cs
     Gets the file, read the whole file and stores only the the row matching the filter in a list.
     The filter it is using is the one passed in 1. above.
     This class return a List back.
 
-1. #### FilterDataBeforeSendingToDB.cs
+3. #### FilterDataBeforeSendingToDB.cs
     Takes the List returned 2. above, iterate through it, spliting the rows using the comma delimited and store it in a string array.
     This array is then checked in the database one by one, if it does not exist then it is added.
 
-1. #### Database.cs
+4. #### Database.cs
     Takes prepared data from 3. above and a statement.
     The statement `select` or `insert` tell the class what to do.
     Returns either db response or exception captured.
 
-1. #### Logging.cs
+5. #### Logging.cs
     Responsible for logging all messages, both `ERR` and `INF` which is what is currently logged.
     The log file is created with date at the end
     ```c#
@@ -82,7 +73,7 @@ Reading a CSV file and writing it to a Database (SQL Server{MSSQL})
         String logDate  = now.ToString("yyyyMMdd");
     ```
 
-1. #### HandleConfigData.cs
+6. #### HandleConfigData.cs
     It's responsibility is to read data from the config file `appsettings.json`
     Return NULL if it does not find the data being looked for.
 ---
