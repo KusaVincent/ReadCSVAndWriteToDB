@@ -25,6 +25,7 @@ Reading a CSV file and writing it to a Database (SQL Server{MSSQL})
         "Authentication": "DatabaseConnectionString",
         "Database": {
             "ConnectionString": "Data Source=DB_IP;Initial Catalog=DB_NAME;User ID=DB_USER;Password=DB_PASSWORD",
+            "DeleteQuery": "DELETE FROM [DB_NAME].[CSVTable] WHERE Coulmn7 < @value0",
             "SelectQuery": "SELECT Coulmn3 FROM [DB_NAME].[CSVTable] WHERE Coulmn3 = @value0",
             "InsertQuery": "INSERT INTO [DB_NAME].[CSVTable] (Coulmn1, Coulmn2, Coulmn3, Coulmn4, Coulmn5, Coulmn6) VALUES (@Value0,@Value1,@Value2,@Value3,@Value4,@Value5)"
         },
