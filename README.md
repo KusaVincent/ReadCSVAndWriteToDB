@@ -37,10 +37,13 @@ Reading a CSV file and writing it to a Database (SQL Server{MSSQL})
             "LogExt" : ".txt",
             "FileExt" : ".csv",
             "LogName" : "log_"
+        },
+        "Archive" : {
+            "CleanUpPeriod" : 8
         }
     }
     ```
-    file paths here a for windows environment, you can customize to match environment you are using.
+    file paths here are for windows environment, you can customize to match environment you are using.
 ---
 ### Understand the Code
 1. #### Program.cs
